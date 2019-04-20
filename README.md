@@ -99,8 +99,3 @@ Duomenų išvedimui liste prireikė 343200600 nanosekundžių. ~(0,343 sec)
 ***Pakeista***
 - Vietoj anksčiau naudotos structūros dabar yra klasė.
 - Visa programa pakeista atitinkamose vietose, kad veiktų su pakeistu kintamojo tipu.
-
-#### Struktūrai be kompiliavimo flag'ų (100k studentų):
-Duomenų ivedimui į listą prireikė  nanosekundžių. ~(0,031 sec)
-Duomenų liste išrūšiavimui prireikė  nanosekundžių. ~(0,0156 sec)
-Duomenų išvedimui liste prireikė  nanosekundžių. ~(0,156 sec)
