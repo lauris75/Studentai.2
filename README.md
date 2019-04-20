@@ -1,2 +1,7 @@
 # Studentai.2
-Ankstesnes programos (Studentai) programos tolimesnes kurimas
+
+Ankstesnės programos (Studentai) programos tolimesnis kūrimas
+
+## Ankstesnes versijas galite rasti čia:
+
+[Nuoroda į ankstesnes versija]https://github.com/lauris75/studentai
