@@ -23,6 +23,8 @@ public:
 
 	double GetGalutinis() const;
 
+	Stud(const Stud&);
+
 private:
 
 	std::string vardas;

@@ -26,6 +26,16 @@ Stud::Stud(string vardas1, string pavarde1, double gal)
 	galvid = gal;
 }
 
+Stud::Stud(const Stud& a)
+{
+	vardas = a.vardas;
+	pavarde = a.pavarde;
+	egzas = a.egzas;
+	nd.reserve(a.nd.size());
+	copy(a.nd.begin(), a.nd.end(), back_inserter(nd));
+	galvid = a.galvid;
+}
+
 Stud::~Stud()
 {
 }
