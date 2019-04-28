@@ -72,36 +72,15 @@ void DuomenuNuskaitymas(T1& stude, int& ilgvardas, int& ilgpavarde)
 		return;
 	}
 };
-void DuomenuKurimas(vector<Stud>& stude, int y);
+void DuomenuKurimas(vector<Stud> & stude, int y);
 
-void DuomenuIvedimas(vector<Stud>& stude, int& ilgvardas, int& ilgpavarde);
+void DuomenuIvedimas(vector<Stud> & stude, int& ilgvardas, int& ilgpavarde);
 
-bool PagalGal(const Stud& a, const Stud& b);
-
-bool compare(const Stud& a, const Stud& b);
-
-template<typename T1, typename T2>
-void DuomenuSkirstymas(T1& stude, T2& feil)
-{
-	std::sort(stude.begin(), stude.end(), compare);
-	std::sort(stude.begin(), stude.end(), PagalGal);
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (stude.at(i).GetGalutinis() < 5)
-		{
-			feil.push_back(stude.at(i));
-			stude.erase(stude.begin() + i);
-			i--;
-			x--;
-		}
-	}
-};
+bool PagalGal(const Stud & a, const Stud & b);
 
 template<typename T1, typename T2, typename T3>
-void DuomenuSkirstymas2(T1& stude, T2& feil, T3& kiet)
+void DuomenuSkirstymas(T1 & stude, T2 & feil, T3 & kiet)
 {
-	std::sort(stude.begin(), stude.end(), compare);
 	std::sort(stude.begin(), stude.end(), PagalGal);
 	int x = stude.size();
 	for (int i = 0; i < x; i++)
@@ -110,9 +89,6 @@ void DuomenuSkirstymas2(T1& stude, T2& feil, T3& kiet)
 		else kiet.push_back(stude.at(i));
 	}
 };
-void DuomenuSkirstymasList(list<Stud>& stude, list<Stud>& feilai);
-
-void DuomenuSkirstymasList2(list<Stud>& stude, list<Stud>& feilai, list<Stud>& kiet);
 
 template<typename T>
 void DuomenuIsvedimas(T stude, int ilgvardas, int ilgpavarde, string k)
@@ -127,5 +103,4 @@ void DuomenuIsvedimas(T stude, int ilgvardas, int ilgpavarde, string k)
 	}
 	RZ.close();
 };
-
 # endif //FUN_H

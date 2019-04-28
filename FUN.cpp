@@ -22,7 +22,7 @@ int sprendimas()
 	return x;
 }
 
-void DuomenuIvedimas(vector<Stud> & stude, int& ilgvardas, int& ilgpavarde)
+void DuomenuIvedimas(vector<Stud>& stude, int& ilgvardas, int& ilgpavarde)
 {
 	cout << "Duomenis ivesite patys ar juos nuskaityti? Nuskaitymui spauskite \"1\", kitu atveju spauskite \"2\"" << endl;
 	int x;
@@ -176,50 +176,4 @@ void DuomenuKurimas(vector<Stud> & stude, int y)
 bool PagalGal(const Stud & a, const Stud & b)
 {
 	return a.GetGalutinis() < b.GetGalutinis();
-}
-bool compare(const Stud & a, const Stud & b) {
-	return a.GetName() < b.GetName();
-}
-
-void DuomenuSkirstymasList(list<Stud> & stude, list<Stud> & feilai)
-{
-	stude.sort(compare);
-	stude.sort(PagalGal);
-	auto it = stude.begin();
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (it->GetGalutinis() < 5)
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			feilai.push_back(a);
-			stude.erase(it);
-			it = stude.begin();
-			advance(it, i);
-			i--;
-			x--;
-		}
-		else it++;
-	}
-}
-void DuomenuSkirstymasList2(list<Stud> & stude, list<Stud> & feilai, list<Stud> & kiet)
-{
-	stude.sort(compare);
-	stude.sort(PagalGal);
-	auto it = stude.begin();
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (it->GetGalutinis() < 5)
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			feilai.push_back(a);
-		}
-		else
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			kiet.push_back(a);
-		}
-		it++;
-	}
 }
