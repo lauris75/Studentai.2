@@ -95,6 +95,63 @@ Duomenų ivedimui į listą prireikė 280800500 nanosekundžių. ~(0,28 sec)
 Duomenų liste išrūšiavimui prireikė 546001000 nanosekundžių. ~(0,546 sec)
 Duomenų išvedimui liste prireikė 343200600 nanosekundžių. ~(0,343 sec)
 
+## Versijos
+
+### [v1.0](https://github.com/lauris75/studentai/releases/tag/v1.0) - (2018-03-25)
+**Pridėta**
+- Skirtingos dalijimo strategijos
+- Greičio analizė su pirma strategija
+    
+- Naudojant std::vector 15977537000 nanosekundžių (~16 sekundžių). (Vektoriui yra labai skausminga elementų naikinimo funkcija)
+- Naudojant std::list   280288000 nanosekundžių (~0,28 sekundės).
+- Naudojant std::deque  377954000 nanosekundžių (~0,378 sekundės).
+    
+- Greičio analizė su antra strategija
+    
+- Naudojant std::vector 467261000 nanosekundžių (~0,467 sekundės).
+- Naudojant std::list   313159000 nanosekundžių (~0,313 sekundės).
+- Naudojant std::deque  478720000 nanosekundžių (~0,479 sekundės).
+    
+
+**Koreguota**
+- ReadMe failas
+- Visos funkcijos pritaikytos naudoti anksčiau minėtus konteinerius
+- Panaikintas anksčiau naudotas linked list;
+
+### [v0.5](https://github.com/lauris75/studentai/releases/tag/v.0.5) - (2018-03-12)
+**Pridėta**
+- Testai su skirtingais konteineriais(išrūšiuojant studentų duomenis pačiam konteineryje pagal vidurkį)
+
+- Naudojant std::vector 465755000 nanosekundžių (~0,466 sekundės).
+- Naudojant std::list   347234000 nanosekundžių (~0,347 sekundės).
+- Naudojant std::deque  3611660000 nanosekundžių (~0,361 sekundės).
+
+### [v0.4](https://github.com/lauris75/studentai/releases/tag/v.0.4) - (2018-03-03)
+**Pridėta**
+- Atsitiktinių failų generavimas
+- Studentų rušiavimas į atskirus failus
+- Greičio analizė
+- Generuojant 10 studentų sąrašą prireikė 2998000 nanosekundžių (~0,003 sekundės).
+- Generuojant 100 studentų sąrašą prireikė 4983000 nanosekundžių (~0,005 sekundės).
+- Generuojant 1000 studentų sąrašą prireikė 41885000 nanosekundžių (~0,042 sekundės).
+- Generuojant 10000 studentų sąrašą prireikė 297219000 nanosekundžių (~0,297 sekundės).
+- Generuojant 100000 studentų sąrašą prireikė 3202049000 nanosekundžių (~3,2 sekundės).
+- Generuojant 1000000 studentų sąrašą prireikė 33857341000 nanosekundžių (~33,857 sekundės).
+
+### [v2.0](https://github.com/lauris75/Studentai.2/releases/tag/Studentai2.0v) - (2018-05-19)
+**Pridėta**
+- Unit tests
+- Doxygen dokumentacija
+
+### [v1.3](https://github.com/lauris75/Studentai.2/releases/tag/Stud1.3v) - (2018-05-05)
+**Pridėta**
+- Virtualios funkcijos
+***Pakeista***
+- Iš Stud klasės padarytos dvi klasės (Bazine ir isvestine (isvesta))
+### [v1.2](https://github.com/lauris75/Studentai.2/releases/tag/Stud1.2v) - (2018-04-28)
+***Pridėta***
+- Pridėta klasė su kompelksiniais skaičiais, kurioje realizuoti loginiai operatoriai.
+
 ### [v1.1](https://github.com/lauris75/studentai/releases/tag/untagged-9b4ad8c4d659ff6c0e8e) - (2018-04-20)
 ***Pakeista***
 - Vietoj anksčiau naudotos structūros dabar yra klasė.
