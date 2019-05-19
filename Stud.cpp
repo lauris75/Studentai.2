@@ -2,6 +2,14 @@
 
 using std::string;
 
+Base::Base() {};
+
+Base::Base(string v, string p)
+{
+	vardas = v;
+	pavarde = p;
+};
+
 Stud::Stud()
 {
 	egzas = 0;
@@ -24,6 +32,25 @@ Stud::Stud(string vardas1, string pavarde1, double gal)
 	pavarde = pavarde1;
 	egzas = 0;
 	galvid = gal;
+}
+void Stud::SetName(std::string s)
+{
+	vardas = s;
+};
+
+void Stud::SetSurname(std::string s)
+{
+	pavarde = s;
+}
+
+Stud::Stud(const Stud& a)
+{
+	vardas = a.vardas;
+	pavarde = a.pavarde;
+	egzas = a.egzas;
+	nd.reserve(a.nd.size());
+	copy(a.nd.begin(), a.nd.end(), back_inserter(nd));
+	galvid = a.galvid;
 }
 
 Stud::~Stud()

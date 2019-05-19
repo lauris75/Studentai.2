@@ -10,8 +10,6 @@
 #include <cmath>
 #include <fstream>
 #include <ctime>
-#include <deque>
-#include <list>
 #include <iterator>
 #include <chrono>
 
@@ -20,13 +18,17 @@ using std::cin;
 using std::endl;
 using std::vector;
 using std::string;
-using std::list;
-using std::deque;
 
 int sprendimas();
 
+unsigned int ilgiausias(string, unsigned int);
+
+double NDvidurkis(vector<int> nd);
+
+double Galutinis(double a, int b);
+
 template <typename T1>
-void DuomenuNuskaitymas(T1& stude, int& ilgvardas, int& ilgpavarde)
+void DuomenuNuskaitymas(T1& stude, unsigned int& ilgvardas, unsigned int& ilgpavarde)
 {
 	string galutinis;
 	int x, suma, kiekis = 0;
@@ -46,9 +48,9 @@ void DuomenuNuskaitymas(T1& stude, int& ilgvardas, int& ilgpavarde)
 		while (!PD.eof())
 		{
 			PD >> vardas;
-			if (vardas.length() > ilgvardas - 2) ilgvardas = vardas.length() + 2;
+			ilgvardas = ilgiausias(vardas, ilgvardas);
 			PD >> pavarde;
-			if (pavarde.length() > ilgpavarde - 2) ilgpavarde = pavarde.length() + 2;
+			ilgpavarde = ilgiausias(pavarde, ilgpavarde);
 			suma = 0;
 			for (int i = 0; i < kiekis; i++)
 			{
@@ -57,8 +59,8 @@ void DuomenuNuskaitymas(T1& stude, int& ilgvardas, int& ilgpavarde)
 				suma = suma + x;
 			}
 			PD >> egzas;
-			if (kiekis != 0) galvid = 0.4 * suma / kiekis + x * 0.6;
-			else galvid = x * 0.6;
+			if (nd.size() == 0) galvid = Galutinis(0, egzas);
+			else galvid = Galutinis(NDvidurkis(nd), egzas);
 			Stud b(vardas, pavarde, nd, egzas, galvid);
 			nd.clear();
 			stude.push_back(b);
@@ -72,36 +74,15 @@ void DuomenuNuskaitymas(T1& stude, int& ilgvardas, int& ilgpavarde)
 		return;
 	}
 };
-void DuomenuKurimas(vector<Stud>& stude, int y);
+void DuomenuKurimas(vector<Stud> & stude, int y);
 
-void DuomenuIvedimas(vector<Stud>& stude, int& ilgvardas, int& ilgpavarde);
+void DuomenuIvedimas(vector<Stud> & stude, unsigned int& ilgvardas, unsigned int& ilgpavarde);
 
-bool PagalGal(const Stud& a, const Stud& b);
-
-bool compare(const Stud& a, const Stud& b);
-
-template<typename T1, typename T2>
-void DuomenuSkirstymas(T1& stude, T2& feil)
-{
-	std::sort(stude.begin(), stude.end(), compare);
-	std::sort(stude.begin(), stude.end(), PagalGal);
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (stude.at(i).GetGalutinis() < 5)
-		{
-			feil.push_back(stude.at(i));
-			stude.erase(stude.begin() + i);
-			i--;
-			x--;
-		}
-	}
-};
+bool PagalGal(const Stud & a, const Stud & b);
 
 template<typename T1, typename T2, typename T3>
-void DuomenuSkirstymas2(T1& stude, T2& feil, T3& kiet)
+void DuomenuSkirstymas(T1 & stude, T2 & feil, T3 & kiet)
 {
-	std::sort(stude.begin(), stude.end(), compare);
 	std::sort(stude.begin(), stude.end(), PagalGal);
 	int x = stude.size();
 	for (int i = 0; i < x; i++)
@@ -110,12 +91,9 @@ void DuomenuSkirstymas2(T1& stude, T2& feil, T3& kiet)
 		else kiet.push_back(stude.at(i));
 	}
 };
-void DuomenuSkirstymasList(list<Stud>& stude, list<Stud>& feilai);
-
-void DuomenuSkirstymasList2(list<Stud>& stude, list<Stud>& feilai, list<Stud>& kiet);
 
 template<typename T>
-void DuomenuIsvedimas(T stude, int ilgvardas, int ilgpavarde, string k)
+void DuomenuIsvedimas(T stude, unsigned int ilgvardas, unsigned int ilgpavarde, string k)
 {
 	auto it = stude.begin();
 	std::ofstream RZ(k);
@@ -127,5 +105,4 @@ void DuomenuIsvedimas(T stude, int ilgvardas, int ilgpavarde, string k)
 	}
 	RZ.close();
 };
-
 # endif //FUN_H

@@ -1,6 +1,5 @@
 #include "FUN.h"
 
-
 int sprendimas()
 {
 	cout << endl << "Pasirinkite, ka noresite daryti:" << endl << "Jei norite patikrinti programos veikima suvedant duomenis arba nuskaitant is jusu failo patys spauskite 1" << endl;
@@ -22,7 +21,29 @@ int sprendimas()
 	return x;
 }
 
-void DuomenuIvedimas(vector<Stud> & stude, int& ilgvardas, int& ilgpavarde)
+unsigned int ilgiausias(string lyg, unsigned int ilgis)
+{
+	if (lyg.length() + 2 > ilgis) return lyg.length() + 2;
+	return ilgis;
+}
+double NDvidurkis(vector<int> nd)
+{
+	double suma = 0;
+	double x = nd.size();
+	for (unsigned int i = 0; i < x; i++)
+	{
+		suma = suma + nd.at(i);
+	}
+	if (x != 0) return suma / x;
+	else return 0;
+}
+
+double Galutinis(double a, int b)
+{
+	return a * 0.4 + b * 0.6;
+}
+
+void DuomenuIvedimas(vector<Stud>& stude, unsigned int& ilgvardas, unsigned int& ilgpavarde)
 {
 	cout << "Duomenis ivesite patys ar juos nuskaityti? Nuskaitymui spauskite \"1\", kitu atveju spauskite \"2\"" << endl;
 	int x;
@@ -81,7 +102,7 @@ void DuomenuIvedimas(vector<Stud> & stude, int& ilgvardas, int& ilgpavarde)
 			{
 				for (int i = 0; i < 100; i++)
 				{
-					x = std::round(1 + (double)rand() / RAND_MAX * (10 - 1));
+					x = rand() % 10 + 1;
 					nd.push_back(x);
 				}
 			}
@@ -132,16 +153,11 @@ void DuomenuIvedimas(vector<Stud> & stude, int& ilgvardas, int& ilgpavarde)
 					cout << "Kazka blogai ivedei, bandyk vel... " << endl;
 					y--;
 				}
-				if (x == -1) egzas = std::round(1 + (double)rand() / RAND_MAX * (10 - 1));
+				if (x == -1) egzas = rand() % 10 + 1;
 				else egzas = x;
 			}
-			int o = nd.size(), suma = 0;
-			for (int y = 0; y < o; y++)
-			{
-				suma = suma + nd.at(y);
-			}
-			if (o == 0)galvid = egzas * 0.6;
-			else galvid = 0.4 * suma / o + egzas * 0.6;
+			if (nd.size() == 0) galvid = Galutinis(0, egzas);
+			else galvid = Galutinis(NDvidurkis(nd), egzas);
 			Stud a(vardas, pavarde, nd, egzas, galvid);
 			stude.push_back(a);
 		}
@@ -159,16 +175,11 @@ void DuomenuKurimas(vector<Stud> & stude, int y)
 		pavarde = "Pavardenis" + std::to_string(i + 1);
 		for (int x = 0; x < 100; x++)
 		{
-			ran = std::round(1 + (double)rand() / RAND_MAX * (10 - 1));
+			ran = rand() % 10 + 1;
 			nd.push_back(ran);
 		}
-		egzas = std::round(1 + (double)rand() / RAND_MAX * (10 - 1));
-		suma = 0;
-		for (int x = 0; x < 100; x++)
-		{
-			suma = suma + nd.at(x);
-		}
-		galvid = 0.4 * suma / 100 + egzas * 0.6;
+		egzas = rand() % 10 + 1;
+		galvid = Galutinis(NDvidurkis(nd), egzas);
 		Stud a(vardas, pavarde, nd, egzas, galvid);
 		stude.push_back(a);
 	}
@@ -176,50 +187,4 @@ void DuomenuKurimas(vector<Stud> & stude, int y)
 bool PagalGal(const Stud & a, const Stud & b)
 {
 	return a.GetGalutinis() < b.GetGalutinis();
-}
-bool compare(const Stud & a, const Stud & b) {
-	return a.GetName() < b.GetName();
-}
-
-void DuomenuSkirstymasList(list<Stud> & stude, list<Stud> & feilai)
-{
-	stude.sort(compare);
-	stude.sort(PagalGal);
-	auto it = stude.begin();
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (it->GetGalutinis() < 5)
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			feilai.push_back(a);
-			stude.erase(it);
-			it = stude.begin();
-			advance(it, i);
-			i--;
-			x--;
-		}
-		else it++;
-	}
-}
-void DuomenuSkirstymasList2(list<Stud> & stude, list<Stud> & feilai, list<Stud> & kiet)
-{
-	stude.sort(compare);
-	stude.sort(PagalGal);
-	auto it = stude.begin();
-	int x = stude.size();
-	for (int i = 0; i < x; i++)
-	{
-		if (it->GetGalutinis() < 5)
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			feilai.push_back(a);
-		}
-		else
-		{
-			Stud a(it->GetName(), it->GetSurname(), it->GetGalutinis());
-			kiet.push_back(a);
-		}
-		it++;
-	}
 }
