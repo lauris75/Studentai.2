@@ -13,7 +13,7 @@ Reikės susikurti .txt failą, pavadinimu kursiokai (kursiokai.txt) ir įdėti �
 Kursiokai failo struktūra turi būti tokia:
 
 Pirmoje eilutėje:
-Vardas Pavardė ND1 ND2 ND3 ND4 ..... NDn Egzaminas
+- Vardas Pavardė ND1 ND2 ND3 ND4 ..... NDn Egzaminas
 
 Visose kitose eilutėse atitinkamai pagal stulpelius turi būti išdėlioti duomenys:
 Vardenis Pavardenis 5 8 9 4 2 6 7 5 6 9
