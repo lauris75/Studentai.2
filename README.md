@@ -16,7 +16,7 @@ Pirmoje eilutėje:
 - Vardas Pavardė ND1 ND2 ND3 ND4 ..... NDn Egzaminas
 
 Visose kitose eilutėse atitinkamai pagal stulpelius turi būti išdėlioti duomenys:
-Vardenis Pavardenis 5 8 9 4 2 6 7 5 6 9
+- Vardenis Pavardenis 5 8 9 4 2 6 7 5 6 9
 
 Duomenys gali būti ir neišlygiuoti.
 
