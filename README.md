@@ -6,6 +6,20 @@ Ankstesnės programos (Studentai) programos tolimesnis kūrimas
 
 [Nuoroda į ankstesnes versija] - https://github.com/lauris75/studentai
 
+## Naudojimas
+
+Norint naudoti šios programos kai kurias funkcijas (visas be generavimo arba pačiam įvedimo)
+Reikės susikurti .txt failą, pavadinimu kursiokai (kursiokai.txt) ir įdėti į programos aplankalą.
+Kursiokai failo struktūra turi būti tokia:
+
+Pirmoje eilutėje:
+Vardas Pavardė ND1 ND2 ND3 ND4 ..... NDn Egzaminas
+
+Visose kitose eilutėse atitinkamai pagal stulpelius turi būti išdėlioti duomenys:
+Vardenis Pavardenis 5 8 9 4 2 6 7 5 6 9
+
+Duomenys gali būti ir neišlygiuoti.
+
 ## Rezultatai lyginant ankstesnę structūrą ir dabartinę klasę
 
 -Duomenims įtakos taip pat turėjo naudoti kompiliavimo flag'ai.
@@ -96,6 +110,10 @@ Duomenų liste išrūšiavimui prireikė 546001000 nanosekundžių. ~(0,546 sec)
 Duomenų išvedimui liste prireikė 343200600 nanosekundžių. ~(0,343 sec)
 
 ## Versijos
+
+### [v2.0](https://github.com/lauris75/Studentai.2/releases/tag/Stud2.0.1v) - (2018-05-19)
+**Pridėta**
+-Makefile
 
 ### [v2.0](https://github.com/lauris75/Studentai.2/releases/tag/Studentai2.0v) - (2018-05-19)
 **Pridėta**
